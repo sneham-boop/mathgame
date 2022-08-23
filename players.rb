@@ -1,12 +1,12 @@
 class Players 
   attr_accessor :name, :lives
-
-  def initialize(name, lives)
+  
+  def initialize(name)
     @name = name
-    @lives = lives
+    @lives = 3
   end
 
-  def losen
+  def lose_a_life
     @lives = @lives - 1
   end
 end

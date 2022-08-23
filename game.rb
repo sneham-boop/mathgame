@@ -36,14 +36,14 @@ class Game
   end
 
   def lost
-    puts "Nope. You are wrong."
-    @current_player.losen
+    puts "Nope. You are wrong. You lose 1 life."
+    @current_player.lose_a_life
     self.print_score
     self.change_player
   end
 
   def change_player
-     
+    # Check if anyone won
     if anyone_won 
       return
     end
@@ -57,21 +57,29 @@ class Game
   end
 
   def print_score
-    puts "#{players[0].name}: #{players[0].lives}/3  and #{players[1].name}: #{players[1].lives}/3"
+    puts "SCORE: #{players[0].name} #{players[0].lives}/3  and #{players[1].name} #{players[1].lives}/3"
   end
 
   def anyone_won
     if players[1].lives == 0
       puts "\n\n\n"
       puts "#{players[0].name} you won the game by #{players[0].lives}/3. Congratulations!!"
-      puts "\n\n\n"
+      puts "\n\n"
+      puts "***********"
+      puts "END OF GAME"
+      puts "***********"
+      puts "\n\n"
       return true
     end
 
     if players[0].lives == 0
       puts "\n\n\n"
       puts "#{players[1].name} you won the game by #{players[1].lives}/3. Congratulations!!"
-      puts "\n\n\n"
+      puts "\n\n"
+      puts "***********"
+      puts "END OF GAME"
+      puts "***********"
+      puts "\n\n"
       return true
     end
     return false
